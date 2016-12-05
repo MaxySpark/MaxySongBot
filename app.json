@@ -3,5 +3,13 @@
   "description": "A Telegrambot",
   "repository": "https://github.com/MaxySpark/MaxySongbot",
   "logo": "https://raw.githubusercontent.com/MaxySpark/MaxySongBot/master/maxyspark.png",
-  "keywords": ["node", "express", "telegram","bot"]
+  "keywords": ["node", "express", "telegram","bot"],
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Bot Token"
+    },
+    "WEBHOOK": {
+      "description": "Webhook For Your Bot"
+    }
+  }
 }
