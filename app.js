@@ -50,7 +50,7 @@ app.post('/'+config.bot_token , (req,res,next)=>{
             request.post((reply_url+'/sendMessage'),{
                 form:{
                     chat_id : body.message.chat.id,
-                    text : "<b>Please Send Song Name</b>",
+                    text : "<b>Please Send A Song Name</b>",
                     parse_mode : "HTML",
                     reply_to_message_id : body.message.message_id
                 }
@@ -61,7 +61,17 @@ app.post('/'+config.bot_token , (req,res,next)=>{
             request.post((reply_url+'/sendMessage'),{
                 form:{
                     chat_id : body.message.chat.id,
-                    text : "<b>Welcome</b>"+'\n'+"<b>Please Send Song Name</b>",
+                    text : "<b>Welcome</b>"+'\n'+"<b>Please Send A Song Name</b>",
+                    parse_mode : "HTML",
+                }
+            });
+            res.status(200).send('OK');
+            next();
+        } else if(typeof (body.message.text)== "undefined" ){
+            request.post((reply_url+'/sendMessage'),{
+                form:{
+                    chat_id : body.message.chat.id,
+                    text : "<b>Invalid Song Name</b>"+'\n'+"<b>Please Send A Song Name</b>",
                     parse_mode : "HTML",
                 }
             });
