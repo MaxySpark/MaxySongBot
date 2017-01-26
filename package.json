@@ -1,7 +1,7 @@
 {
   "name": "maxysongbot",
   "version": "0.0.1",
-  "description": "A Telegram Bot For Get m4a Link A Of A Song From Youtube",
+  "description": "A Messenger Bot For Get m4a Link A Of A Song From Youtube",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
