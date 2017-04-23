@@ -39,7 +39,7 @@ app.post('/webhook',function(req,res) {
         var msgData = data.entry[0].messaging;
         msgData.forEach(function(event) {     
             if (event.hasOwnProperty('delivery')) {
-                continue;
+                
             } else {
                 song_d(msgData[0].message.text,msgData[0].sender.id,sendMsg);
             }
