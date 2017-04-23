@@ -9,7 +9,7 @@ var config = require('./lib/config');
 var methods = require('./lib/methods');
 var song_d = require('./lib/song.js');
 var sendMsg = methods.sendMsg; 
-
+var sendMsgBlank = methods.sendMsgBlank;
 var port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
@@ -41,8 +41,11 @@ app.post('/webhook',function(req,res) {
             if (event.hasOwnProperty('delivery')) {
                 console.log("delivery poop limited!!!");
             } else {
-                console.log(event.message.text+event.sender.id)
-                song_d(event.message.text,event.sender.id,sendMsg);
+                if(event.message.text) {
+                    song_d(event.message.text,event.sender.id,sendMsg);
+                } else {
+                    sendMsgBlank(event.sender.id);
+                }
             }
         });
     }   
