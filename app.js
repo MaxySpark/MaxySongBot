@@ -39,8 +39,9 @@ app.post('/webhook',function(req,res) {
         var msgData = data.entry[0].messaging;
         msgData.forEach(function(event) {     
             if (event.hasOwnProperty('delivery')) {
-                
+                console.log("delivery poop limited!!!");
             } else {
+                console.log(msgData[0].sender.id)
                 song_d(msgData[0].message.text,msgData[0].sender.id,sendMsg);
             }
         });
