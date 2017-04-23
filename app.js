@@ -35,11 +35,16 @@ app.get('/webhook', function(req, res) {
 app.post('/webhook',function(req,res) {
     
     var data = req.body;
-    var msgData = data.entry[0].messaging;
-
     if(data.object == "page") {
-        song_d(msgData[0].message.text,msgData[0].sender.id,sendMsg);
-    }
+        var msgData = data.entry[0].messaging;
+        msgData.forEach(function(event) {     
+            if (event.hasOwnProperty('delivery')) {
+                continue;
+            } else {
+                song_d(msgData[0].message.text,msgData[0].sender.id,sendMsg);
+            }
+        });
+    }   
 
     res.send(200);
 });
