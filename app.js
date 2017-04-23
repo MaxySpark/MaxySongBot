@@ -1,21 +1,47 @@
-var express = require('express');
-var app = express();
-var request = require('request');
-var bodyParser = require('body-parser');
-var _ = require('underscore');
+'use strict'
+
+const express = require('express');
+const request = require('request');
+const bodyParser = require('body-parser');
+const _ = require('underscore');
+const app = express();
 var config = require('./lib/config');
-var song_d = require('./lib/song.js');
+var methods = require('./lib/methods');
+var sendMsg = methods.sendMsg; 
 
 var port = process.env.PORT || 5000;
 
-request({
-    url: webhook_url,
-    json : true
-}, (err, res, body) => {
-   console.log(body); 
+app.use(bodyParser.json());
+
+app.get('/',function(req,res) {
+    res.send("running").status(200);
 });
 
-app.use(bodyParser.json());
+//validation
+
+app.get('/webhook', function(req, res) {
+  if (req.query['hub.mode'] === 'subscribe' &&
+      req.query['hub.verify_token'] === config.varify_token) {
+    console.log("Validating webhook");
+    res.status(200).send(req.query['hub.challenge']);
+  } else {
+    console.error("Failed validation. Make sure the validation tokens match.");
+    res.sendStatus(403);          
+  }  
+});
+
+
+app.post('/webhook',function(req,res) {
+    
+    var data = req.body;
+    var msgData = data.entry[0].messaging;
+
+    if(data.object == "page") {
+        sendMsg(msgData);
+    }
+
+    res.send(200);
+});
 
 app.listen(port, () =>
 {

@@ -1,0 +1,4 @@
+heroku logs --app maxychatbot
+
+EAAXrpfakfIQBACWeJ8n5AbbI8wuF6ZADIzSeKkZAhbpfXLo4i0ZAnD8CmLcIchCQYAkd5t8o6IkTa6uCP1Q8vqAzg2h5kOZCiEZB5KRCtDiSj5jj9j9r7eA3ijoZBwCCbJujymlzNWmqka22QcZCrmSOwW2e4SoyC2NyOKUlLVDEAZDZD
+

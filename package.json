@@ -1,27 +1,31 @@
 {
-  "name": "maxysongbot",
-  "version": "0.0.1",
-  "description": "A Messenger Bot For Get m4a Link A Of A Song From Youtube",
+  "name": "fbchatbot",
+  "version": "1.0.0",
+  "description": "A messenger bot",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "node app",
+    "test": "node app"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaxySpark/MaxySongBot.git"
+    "url": "git+https://github.com/MaxySpark/FbChatBot.git"
   },
-  "author": "MaxySpark",
-  "license": "MIT",
+  "keywords": [
+    "bot",
+    "fb",
+    "messenger"
+  ],
+  "author": "MaxySpark (me@bhargab.me)",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MaxySpark/MaxySongBot/issues"
+    "url": "https://github.com/MaxySpark/FbChatBot/issues"
   },
-  "homepage": "https://github.com/MaxySpark/MaxySongBot#readme",
+  "homepage": "https://github.com/MaxySpark/FbChatBot#readme",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "cheerio": "^0.22.0",
-    "express": "^4.14.0",
-    "request": "^2.79.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "request": "^2.81.0",
     "underscore": "^1.8.3"
   }
 }

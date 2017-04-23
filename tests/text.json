@@ -1,0 +1,19 @@
+{
+    "object":"page",
+    "entry":[
+        {
+            "id":"252324025205881",
+            "time":1492783102888,
+            "messaging":[
+                {
+                    "sender":{"id":"1292307627485859"},
+                    "recipient":{"id":"252324025205881"},
+                    "timestamp":1492783102677,
+                    "message":{
+                        "mid":"mid.$cAAC_iPOZ50FhwhPC1VbkM542pZwR",
+                        "seq":51245,
+                        "text":"hola"
+                        }
+                }]
+        }]
+}
