@@ -7,6 +7,7 @@ const _ = require('underscore');
 const app = express();
 var config = require('./lib/config');
 var methods = require('./lib/methods');
+var song_d = require('./lib/song.js');
 var sendMsg = methods.sendMsg; 
 
 var port = process.env.PORT || 5000;
@@ -37,7 +38,7 @@ app.post('/webhook',function(req,res) {
     var msgData = data.entry[0].messaging;
 
     if(data.object == "page") {
-        sendMsg(msgData);
+        song_d(msgData[0].message.text,msgData[0].sender.id,sendMsg);
     }
 
     res.send(200);
